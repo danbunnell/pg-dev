@@ -1,1 +1,6 @@
-/data
+# local data volumes
+/db-data
+
+# local env files
+.env*.local
+.env
