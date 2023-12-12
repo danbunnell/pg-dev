@@ -1,5 +1,5 @@
 # local data volumes
-/db-data
+/.volume
 
 # local env files
 .env*.local

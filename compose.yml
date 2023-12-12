@@ -10,13 +10,13 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-       - ./db-data:/var/lib/postgresql/data
+       - ./.volume:/var/lib/postgresql/data
     networks:
       - backend
     ports:
       - "${HOST_PORT}:5432"
 volumes:
-  db-data:
+  .volume:
     name: ${DATABASE_VOLUME_NAME}
 networks:
   backend:
