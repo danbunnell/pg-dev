@@ -1,9 +1,9 @@
 # docker-compose.yml
-name: shorty-db-postgres
+name: ${PROJECT_NAME}
 version: '3.1'
 services:
   db:
-    image: postgres:latest
+    image: postgres:${POSTGRES_VERSION}
     restart: always
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
@@ -11,13 +11,5 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
     volumes:
        - ./.volume:/var/lib/postgresql/data
-    networks:
-      - backend
     ports:
       - "${HOST_PORT}:5432"
-volumes:
-  .volume:
-    name: ${DATABASE_VOLUME_NAME}
-networks:
-  backend:
-    name: ${NETWORK_NAME}
