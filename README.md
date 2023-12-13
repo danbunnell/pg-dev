@@ -1,12 +1,23 @@
-# Shorty DB
+# dev-pg 
 
-A database project acting as a backend for shorty
+A simple, Docker-based Postgres database service for use during development
 
-## Running
+## User Guide 
 
-```docker-compose up```
+### Setup
 
-## Connecting
+1. Copy the `.env.example` file to `.env`
+2. Update the environment variables in `.env` as desired. To protect any secret values, ensure that the `.env` file will be ignored by any applicable version control.
+3. Follow direction in the [Running section](#running) to start your database service.
+4. Once you confirm the service is running via CLI output, follow the directions in the [Connecting section](#connecting) to connect to the database and start using it.
+
+### Running
+
+```docker compose up```
+
+### Connecting
+
+From the CLI:
 
 ```sh
 psql \
@@ -17,6 +28,8 @@ psql \
   --password $DATABASE_PASSWORD
 ```
 
-## Backing up your data
+For a GUI experience, use [pgAdmin](https://www.pgadmin.org/).
 
-After running Shorty DB, stop the container and back up a copy of your local `/data` folder. This volume is mounted to Shorty DB when spinning up a new container instance.
+### Backing up your data
+
+By default, your database data will be persisted outside of the container service to the `./.volume` directory on the host. This volume is portable and can be backed up. By replacing this directory with a backup, you can reload the database from prior state.
