@@ -1,4 +1,4 @@
-# dev-pg 
+# pg-dev
 
 A simple, Docker-based Postgres database service for use during development
 
